@@ -29,7 +29,9 @@
 <link rel="preload" as="image" href="/media/hero-poster-960.webp" imagesrcset="/media/hero-poster-960.webp 960w, /media/hero-poster-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Manrope:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Manrope:wght@400;500;600;700&display=swap"></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -223,7 +225,7 @@ footer{padding:clamp(72px,10vw,120px) 0 40px;position:relative;overflow:hidden}
 .foot-grid h4{font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
 .foot-grid a,.foot-grid p{display:block;text-decoration:none;color:var(--cream-2);font-size:15px;line-height:1.7}
 .foot-grid a:hover{color:var(--saffron)}
-.legal{margin-top:48px;font-size:13px;color:#7d6c58;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.legal{margin-top:48px;font-size:13px;color:#a8957d;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 @media (max-width:820px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid>div:first-child{grid-column:1/-1}}
 
 /* Mobile call bar */
@@ -231,17 +233,19 @@ footer{padding:clamp(72px,10vw,120px) 0 40px;position:relative;overflow:hidden}
 .callbar.show{transform:none}
 .callbar a{flex:1;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.45)}
 .callbar .btn-ghost{background:rgba(22,17,13,.92)}
-@media (max-width:640px){.callbar{display:flex}footer{padding-bottom:96px}}
+@media (max-width:640px){.callbar{display:flex;bottom:calc(max(12px,env(safe-area-inset-bottom)) + 64px)}footer{padding-bottom:160px}}
 
 /* Reveal */
 .rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
 .rv.in{opacity:1;transform:none}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
-.hero .rv{transition-duration:1.4s}
+.hero .rv{opacity:1;transform:none;transition:none;animation:heroIn 1.3s var(--ease) both}
+.hero .rv.d1{animation-delay:.12s}.hero .rv.d2{animation-delay:.24s}.hero .rv.d3{animation-delay:.36s}
+@keyframes heroIn{from{opacity:.01;transform:translateY(26px)}to{opacity:1;transform:none}}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .rv{opacity:1;transform:none;transition:none}
+  .rv,.hero .rv{opacity:1;transform:none;transition:none;animation:none}
   .ticker-track,.scroll-cue::after,.map .ring{animation:none}
   .layer,.stack img,.float-spice{transform:none!important}
   .btn,.svc,.foot-cta a{transition:none}
