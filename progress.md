@@ -22,7 +22,7 @@ Last updated: 2026-11-16
 - Name: Mayra's Handi Home — Restaurant
 - Address: Street No. 7, Narain Nagar, Guru Nanak Colony, Faridkot, Punjab 151203 (plus code MPMW+35)
 - Phone: +91 96393 00042
-- Hours: opens 11 a.m. (closing time unknown, so the site asks visitors to call)
+- Hours: every day (Monday to Sunday) 11 a.m. – 10 p.m. (from the Google Maps listing you shared)
 - Price: ₹200–400 per person
 - Services: dine-in, takeout, no-contact delivery
 - Menu: https://food-order.in/handi-home (confirmed by you; linked from the navigation "Menu", the "Open menu" button and the footer)
@@ -73,13 +73,14 @@ Limits hit: the Higgsfield account is on the free plan (≈0.8 credits left), so
 13. Fixed the phone Call/Directions bar showing at the top of the page (left over from the Higgsfield badge offset).
 14. Removed the five stars on the first review: the listing never gave that reviewer's rating.
 15. Created `Mayras-Handi-Home-Website-Handbook.pdf`: screenshots, all site text, design, technical notes, hosting, change log, open items, and prompts (continue-work prompt, original brief, hero image/video prompts).
+16. Added full opening hours everywhere (hero, Visit section with live open/closed status in India time, footer, meta descriptions, JSON-LD `openingHoursSpecification`).
+17. Redesigned the review cards: three equal-height cards in a straight row (they were staggered and uneven on PC), quote mark and reviewer line aligned in every card, and a rating box that links to all Google reviews. Handbook PDF regenerated.
 
 ## Open items
 
 - [ ] **Move to the Vercel account connected to GitHub** (for auto-deploy on push): import `ProudStone-576/handi-home`, Root Directory `site`, Framework "Other", no build command, choose the production branch. Steps are also in the handbook PDF.
 - [ ] **Commit author for Vercel:** Vercel's Hobby plan blocks deploys of commits by people outside the Vercel team; commits made in this session are authored as Claude, so git-triggered builds of them would be blocked. Commit as your own GitHub identity, or move to Pro and add the author.
 - [ ] Delete the Higgsfield website from the Higgsfield dashboard to remove it fully (no tool exists for it).
-- [ ] Confirm the closing time, then add it to the Hours section.
 - [ ] Optional: custom domain on Vercel; if added, update canonical/OG/sitemap/robots URLs.
 - [ ] Remove the Vercel token from this cloud environment's settings when deploys from here are no longer needed; consider enabling 2FA on the Vercel account.
 
