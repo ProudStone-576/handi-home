@@ -15,7 +15,7 @@ Last updated: 2026-11-16
 | SEO: meta, canonical, OG/Twitter image, JSON-LD, sitemap, robots | Done — all point at Vercel |
 | Fonts | Self-hosted in `site/fonts` (no Google Fonts requests) |
 | Deployment | Vercel only. Higgsfield copy retired (blank, noindex) |
-| Auto-deploy on git push | Waiting on you: connect GitHub to the Vercel account (see Open items) |
+| Auto-deploy on git push | Planned: the project will move to your other Vercel account, which is connected to GitHub. Until then, deploys are manual from this session |
 
 ## Business facts used (from the Google Maps listing)
 
@@ -25,7 +25,7 @@ Last updated: 2026-11-16
 - Hours: opens 11 a.m. (closing time unknown, so the site asks visitors to call)
 - Price: ₹200–400 per person
 - Services: dine-in, takeout, no-contact delivery
-- Menu: food-order.in (exact menu page unknown; links to the site's homepage)
+- Menu: https://food-order.in/handi-home (confirmed by you; linked from the navigation "Menu", the "Open menu" button and the footer)
 - Rating: 3.9 from 153 Google reviews
 - Reviews quoted verbatim: "Wonderful place..superb food quality and amazing atmosphere..", "Good quality food & service", "Good ambience" (techiedoc, Local Guide)
 
@@ -68,13 +68,18 @@ Limits hit: the Higgsfield account is on the free plan (≈0.8 credits left), so
 8. Self-hosted the fonts and redeployed to Vercel.
 9. Retired the Higgsfield copy: no redirect, just a blank "no longer available" page with `noindex` and `Disallow: /`; all its media, icons and feed metadata removed (an empty title hides it on the feed). Higgsfield offers no tool to delete a website outright.
 10. Vercel project root set to `site/`; the Vercel link file moved to the repo root (`.vercel/`, git-ignored).
+11. Menu links (navigation, "Open menu" button, footer) now open https://food-order.in/handi-home.
+12. Fixed the hero video stopping on phones: phones, tablets and Safari now get H.264 MP4 only (re-encoded with a keyframe every second), and a script restarts it if the browser pauses it, stalls or ignores looping; it pauses off screen and resumes on return. Tested looping on iPhone and Pixel profiles.
+13. Fixed the phone Call/Directions bar showing at the top of the page (left over from the Higgsfield badge offset).
+14. Removed the five stars on the first review: the listing never gave that reviewer's rating.
+15. Created `Mayras-Handi-Home-Website-Handbook.pdf`: screenshots, all site text, design, technical notes, hosting, change log, open items, and prompts (continue-work prompt, original brief, hero image/video prompts).
 
 ## Open items
 
-- [ ] **Turn on auto-deploy from GitHub:** in Vercel, Account Settings, Authentication, connect GitHub; make sure the Vercel GitHub app can see `ProudStone-576/handi-home`. Then link the project (Project Settings, Git) and set the production branch.
+- [ ] **Move to the Vercel account connected to GitHub** (for auto-deploy on push): import `ProudStone-576/handi-home`, Root Directory `site`, Framework "Other", no build command, choose the production branch. Steps are also in the handbook PDF.
 - [ ] **Commit author for Vercel:** Vercel's Hobby plan blocks deploys of commits by people outside the Vercel team; commits made in this session are authored as Claude, so git-triggered builds of them would be blocked. Commit as your own GitHub identity, or move to Pro and add the author.
 - [ ] Delete the Higgsfield website from the Higgsfield dashboard to remove it fully (no tool exists for it).
-- [ ] Confirm the exact menu URL on food-order.in and the closing time, then update the site.
+- [ ] Confirm the closing time, then add it to the Hours section.
 - [ ] Optional: custom domain on Vercel; if added, update canonical/OG/sitemap/robots URLs.
 - [ ] Remove the Vercel token from this cloud environment's settings when deploys from here are no longer needed; consider enabling 2FA on the Vercel account.
 
